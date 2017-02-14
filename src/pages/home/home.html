@@ -16,4 +16,15 @@
       </ion-item>
     </ion-list>
   </ion-card>
+
+  <ion-card>
+    <ion-card-header> Completed </ion-card-header>
+    <ion-list>
+      <ion-item text-wrap *ngFor="let toDo of toDoList | async" [class.hide]="toDo.done == false">
+        <ion-icon name="checkmark-circle" favorite item-left></ion-icon>
+        <h2>{{toDo.name}}</h2>
+        <h3>Notes: <strong>${{toDo.notes}}</strong></h3>
+      </ion-item>
+    </ion-list>
+  </ion-card>
 </ion-content>
