@@ -5,7 +5,9 @@ import { HomePage } from '../pages/home/home';
 
 // Import the AF2 Module
 import { AngularFireModule } from 'angularfire2';
- 
+//import date pretty pipe
+import { DateFormatPipe } from 'angular2-moment';
+
 // AF2 Settings
 export const firebaseConfig = {
     apiKey: "AIzaSyCGHU7J-gg4zdp-h8RWPk4x1yeDFnSKETo",
@@ -22,7 +24,8 @@ export const firebaseConfig = {
   ],
   imports: [
     IonicModule.forRoot(MyApp),
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    DateFormatPipe
   ],
   bootstrap: [IonicApp],
   entryComponents: [

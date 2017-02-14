@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController,AlertController } from 'ionic-angular';
 import { ToDoCreatePage } from '../to-do-create/to-do-create'; 
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
-
 @Component({
     selector: 'page-home',
     templateUrl: 'home.html'
