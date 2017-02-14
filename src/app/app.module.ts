@@ -1,0 +1,34 @@
+import { NgModule, ErrorHandler } from '@angular/core';
+import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { MyApp } from './app.component';
+import { HomePage } from '../pages/home/home';
+
+// Import the AF2 Module
+import { AngularFireModule } from 'angularfire2';
+ 
+// AF2 Settings
+export const firebaseConfig = {
+    apiKey: "AIzaSyCGHU7J-gg4zdp-h8RWPk4x1yeDFnSKETo",
+    authDomain: "comp3025-todo.firebaseapp.com",
+    databaseURL: "https://comp3025-todo.firebaseio.com",
+    storageBucket: "comp3025-todo.appspot.com",
+    messagingSenderId: "69003071348"
+};
+
+@NgModule({
+  declarations: [
+    MyApp,
+    HomePage
+  ],
+  imports: [
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig)
+  ],
+  bootstrap: [IonicApp],
+  entryComponents: [
+    MyApp,
+    HomePage
+  ],
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler}]
+})
+export class AppModule {}
