@@ -4,6 +4,16 @@
     <ion-buttons end> <button (click)="newToDo()"> <ion-icon name="add"></ion-icon> </button> </ion-buttons>
   </ion-navbar>
 </ion-header>
-<ion-content class="home"> 
-
+<ion-content class="home">
+  <ion-card>
+    <ion-card-header> Pending To-Do </ion-card-header>
+    <ion-list>
+      <ion-item text-wrap *ngFor="let toDo of toDoList | async" (click)="promptComplete(toDo.$key)" [class.hide]="toDo.done == true">
+        <ion-icon name="timer" danger item-left></ion-icon>
+        <h2>{{toDo.name}}</h2>
+        <h3>Notes: <strong>${{toDo.notes}}</strong></h3>
+        <p>Complete before: <strong>{{toDo.dueDate | amDateFormat: 'LL'}}</strong></p>
+      </ion-item>
+    </ion-list>
+  </ion-card>
 </ion-content>
