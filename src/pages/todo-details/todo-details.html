@@ -1,15 +1,21 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>New To-Do</ion-title>
+    <ion-title>To-Do Details</ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content padding class="to-do-create">
+
+  <ion-item>
+    <ion-label stacked>ID</ion-label>
+    <ion-input [(ngModel)]="id" type="text"></ion-input>
+  </ion-item>
+
   <ion-item>
     <ion-label stacked>To-Do Name</ion-label>
-    <ion-input [(ngModel)]="name" type="text" placeholder="Task name"></ion-input>
+    <ion-input  [(ngModel)]="name" type="text" placeholder="Task name"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label stacked>Notes</ion-label>
-    <ion-textarea [(ngModel)]="notes" type="text" placeholder="How will you complete it?"></ion-textarea>
+    <ion-textarea  [(ngModel)]="notes" type="text" placeholder="Steps to complete task"></ion-textarea>
   </ion-item>
-  <button block (click)="createToDo(name, notes, dueDate)"> Create To-Do </button> </ion-content>
+  <button class="add-btn" (click)="saveToDo(id, name, notes)"> Save </button> </ion-content>

@@ -1,34 +1,59 @@
 <ion-header>
   <ion-navbar>
-    <ion-title> My To-Do List {{ toDoList?.length }} </ion-title>
-    <ion-buttons end> <button class="add-btn" (click)="newToDo()"><ion-icon name="add-circle"></ion-icon> </button> </ion-buttons>
+    <ion-title> My To-Do List </ion-title>
+    <ion-buttons end>
+      <button class="add-btn" ion-button color="secondary" (click)="newToDo()">
+    <ion-icon name="add"></ion-icon>&nbsp;Add
+  </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 <ion-content class="home">
   <ion-card>
     <ion-card-header class="pending"> Pending To-Do </ion-card-header>
-    <ion-list >
-      <ion-item id="list" text-wrap *ngFor="let toDo of toDoList | async" [class.hide]="toDo.done == true">
-        <ion-icon name="timer" danger item-left></ion-icon>
-        <h2>{{toDo.name}}</h2>
-        <h3>Notes: <strong>{{toDo.notes}}</strong></h3>
-        <ion-icon name="checkmark-circle" (click)="promptComplete(toDo.$key)" class="btn complete" danger item-right></ion-icon>
-        <ion-icon name="construct" (click)="showEditOptions(toDo.$key, toDo.name, toDo.notes)" class="btn edit" danger item-right></ion-icon>
-        <ion-icon name="trash" (click)="promptDelete(toDo.$key)" class="btn delete" danger item-right></ion-icon>
-      </ion-item>
+    <ion-list>
+      <ion-item-sliding id="list" text-wrap *ngFor="let toDo of toDoList | async" [class.hide]="toDo.done == true">
+        <ion-item>
+          <ion-icon name="timer" danger item-left></ion-icon>
+          <h2>{{toDo.name}}</h2>
+          <h3>Notes: <strong>{{toDo.notes}}</strong></h3>
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button (click)="editToDo(toDo.$key, toDo.name, toDo.notes)">
+          <ion-icon name="build"></ion-icon>
+          Edit
+          </button>
+          <button ion-button color="danger" (click)="promptDelete(toDo.$key)">
+          <ion-icon name="trash"></ion-icon>
+          Delete
+          </button>
+        </ion-item-options>
+        <ion-item-options side="left">
+          <button ion-button color="secondary" (click)="promptComplete(toDo.$key)">
+    <ion-icon name="checkmark-circle"></ion-icon>
+    Complete
+  </button>
+        </ion-item-options>
+      </ion-item-sliding>
     </ion-list>
   </ion-card>
 
   <ion-card>
     <ion-card-header class="complete"> Completed </ion-card-header>
-    <ion-list>
-      <ion-item text-wrap id="list" *ngFor="let toDo of toDoList | async" [class.hide]="toDo.done == false">
-        <ion-icon name="checkmark-circle" favorite item-left></ion-icon>
-        <h2>{{toDo.name}}</h2>
-        <h3>Notes: <strong>{{toDo.notes}}</strong></h3>
-        <ion-icon name="trash" (click)="promptDelete(toDo.$key)" class="btn delete" danger item-right></ion-icon>
-      
-      </ion-item>
+     <ion-list>
+      <ion-item-sliding id="list" text-wrap *ngFor="let toDo of toDoList | async" [class.hide]="toDo.done == false">
+        <ion-item>
+          <ion-icon name="checkmark-circle" secondary item-left></ion-icon>
+          <h2>{{toDo.name}}</h2>
+          <h3>Notes: <strong>{{toDo.notes}}</strong></h3>
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button color="danger" (click)="promptDelete(toDo.$key)">
+          <ion-icon name="trash"></ion-icon>
+          Delete
+          </button>
+        </ion-item-options>
+      </ion-item-sliding>
     </ion-list>
   </ion-card>
 </ion-content>

@@ -1,13 +1,7 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
-/*
-  Generated class for the ToDoCreate page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 
 @Component({
   selector: 'page-todo-details',
@@ -16,11 +10,36 @@ import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 export class ToDoCreatePage {
   toDoList: FirebaseListObservable<any>;
-  constructor(public navCtrl: NavController, public af: AngularFire) {
+  id:string;
+  name:string;
+  notes:string;
+
+  constructor(public navCtrl: NavController, public af: AngularFire, public navParams: NavParams) {
     this.toDoList = af.database.list('/toDos');
+    this.id = this.navParams.get('id');
+    this.name = this.navParams.get('name');
+    this.notes = this.navParams.get('notes');
+  }
+  //update to saveToDo
+  saveToDo(id="", name, notes){
+    console.log("id:"+id);
+    console.log("name:"+name);
+    console.log("notes:"+notes);
+    if(id==""){
+      this.createToDo(name, notes);
+    }else{
+      this.updateToDo(id, name, notes);
+    }
+  }
+  updateToDo(id, name, notes){
+          this.toDoList.update(id, {
+            name:name,
+            notes: notes
+          })
+      this.navCtrl.pop();
   }
 
-  createToDo(name, notes, dueDate) {
+  createToDo(name, notes) {
     this.toDoList.push({
       name: name,
       notes: notes,
