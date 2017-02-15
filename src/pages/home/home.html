@@ -6,33 +6,28 @@
 </ion-header>
 <ion-content class="home">
   <ion-card>
-    <ion-card-header> Pending To-Do </ion-card-header>
+    <ion-card-header class="pending"> Pending To-Do </ion-card-header>
     <ion-list >
-      <ion-item text-wrap *ngFor="let toDo of toDoList | async" [class.hide]="toDo.done == true">
+      <ion-item id="list" text-wrap *ngFor="let toDo of toDoList | async" [class.hide]="toDo.done == true">
         <ion-icon name="timer" danger item-left></ion-icon>
-
         <h2>{{toDo.name}}</h2>
         <h3>Notes: <strong>{{toDo.notes}}</strong></h3>
-        <p>Complete before: <strong>{{toDo.dueDate | amDateFormat: 'LL'}}</strong></p>
-        <ion-icon name="checkmark-circle" (click)="promptComplete(toDo.$key)" class="complete-btn" danger item-right></ion-icon>
-        <ion-icon name="construct" (click)="showOptions(toDo.$key, toDo.name, toDo.notes, toDo.dueDate)" class="edit-btn" danger item-right></ion-icon>
-        <ion-icon name="trash" (click)="promptComplete(toDo.$key)" class="delete-btn" danger item-right></ion-icon>
-
- 
-
-        
-
+        <ion-icon name="checkmark-circle" (click)="promptComplete(toDo.$key)" class="btn complete" danger item-right></ion-icon>
+        <ion-icon name="construct" (click)="showEditOptions(toDo.$key, toDo.name, toDo.notes)" class="btn edit" danger item-right></ion-icon>
+        <ion-icon name="trash" (click)="promptDelete(toDo.$key)" class="btn delete" danger item-right></ion-icon>
       </ion-item>
     </ion-list>
   </ion-card>
 
   <ion-card>
-    <ion-card-header> Completed </ion-card-header>
+    <ion-card-header class="complete"> Completed </ion-card-header>
     <ion-list>
-      <ion-item text-wrap *ngFor="let toDo of toDoList | async" [class.hide]="toDo.done == false">
+      <ion-item text-wrap id="list" *ngFor="let toDo of toDoList | async" [class.hide]="toDo.done == false">
         <ion-icon name="checkmark-circle" favorite item-left></ion-icon>
         <h2>{{toDo.name}}</h2>
         <h3>Notes: <strong>{{toDo.notes}}</strong></h3>
+        <ion-icon name="trash" (click)="promptDelete(toDo.$key)" class="btn delete" danger item-right></ion-icon>
+      
       </ion-item>
     </ion-list>
   </ion-card>

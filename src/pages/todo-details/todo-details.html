@@ -12,8 +12,4 @@
     <ion-label stacked>Notes</ion-label>
     <ion-textarea [(ngModel)]="notes" type="text" placeholder="How will you complete it?"></ion-textarea>
   </ion-item>
-  <ion-item>
-    <ion-label>Due Date</ion-label>
-    <ion-datetime displayFormat="D MMM, YY" pickerFormat="DD MMM YYYY" [(ngModel)]="dueDate"></ion-datetime>
-  </ion-item>
   <button block (click)="createToDo(name, notes, dueDate)"> Create To-Do </button> </ion-content>

@@ -8,31 +8,33 @@ color:white;
     overflow: hidden;
     font-size:1.5em;
 }
-.complete-btn{
-padding:5px;
-    border-radius: 10px;
+.btn{
+padding:10px;
+border-radius: 10px;
+color:white;
+    border: 2px solid #464646;
+    overflow: hidden;
+    font-size:1.5em;
+
+}
+.complete{
 background-color:#118811;
 color:white;
+}
 
-    border: 2px solid #464646;
-    overflow: hidden;
-    font-size:1.5em;
+.complete #list{
+background-color:#99FF99;
 }
-.edit-btn{
-padding:5px;
-    border-radius: 10px;
+.pending{
+background-color:#999900;
+color:white;
+}
+.pending #list{
+background-color:#FFFF99;
+}
+.edit{
 background-color:#111188;
-color:white;
-    border: 2px solid #464646;
-    overflow: hidden;
-    font-size:1.5em;
 }
-.delete-btn{
-padding:5px;
-    border-radius: 10px;
+.delete{
 background-color:#881111;
-color:white;
-    border: 2px solid #464646;
-    overflow: hidden;
-    font-size:1.5em;
 }

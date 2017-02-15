@@ -24,7 +24,6 @@ export class ToDoCreatePage {
     this.toDoList.push({
       name: name,
       notes: notes,
-      dueDate: dueDate,
       done: false
     }).then( newToDo => {
       this.navCtrl.pop();
