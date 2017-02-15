@@ -16,7 +16,7 @@
         <ion-item>
           <ion-icon name="timer" danger item-left></ion-icon>
           <h2>{{toDo.name}}</h2>
-          <h3>Notes: <strong>{{toDo.notes}}</strong></h3>
+          <h3><strong>{{toDo.notes}}</strong></h3>
         </ion-item>
         <ion-item-options side="right">
           <button ion-button (click)="editToDo(toDo.$key, toDo.name, toDo.notes)">
@@ -45,7 +45,7 @@
         <ion-item>
           <ion-icon name="checkmark-circle" secondary item-left></ion-icon>
           <h2>{{toDo.name}}</h2>
-          <h3>Notes: <strong>{{toDo.notes}}</strong></h3>
+          <h3><strong>{{toDo.notes}}</strong></h3>
         </ion-item>
         <ion-item-options side="right">
           <button ion-button color="danger" (click)="promptDelete(toDo.$key)">
