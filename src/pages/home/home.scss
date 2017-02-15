@@ -1,3 +1,38 @@
-page-home {
+.add-btn{
+padding:20px;
+background-color:#118811;
+color:white;
 
+    border-radius: 10px;
+    border: 2px solid #464646;
+    overflow: hidden;
+    font-size:1.5em;
+}
+.complete-btn{
+padding:5px;
+    border-radius: 10px;
+background-color:#118811;
+color:white;
+
+    border: 2px solid #464646;
+    overflow: hidden;
+    font-size:1.5em;
+}
+.edit-btn{
+padding:5px;
+    border-radius: 10px;
+background-color:#111188;
+color:white;
+    border: 2px solid #464646;
+    overflow: hidden;
+    font-size:1.5em;
+}
+.delete-btn{
+padding:5px;
+    border-radius: 10px;
+background-color:#881111;
+color:white;
+    border: 2px solid #464646;
+    overflow: hidden;
+    font-size:1.5em;
 }
