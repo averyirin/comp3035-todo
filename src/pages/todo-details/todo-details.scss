@@ -3,6 +3,9 @@ Program: ToDoApp
 Author: Irin Avery 200260949
 Date Last Modified: 2/16/2017
 File: todo-details.scss
-Description: Beautifies the list view and buttons
-Update: Adjusted background colours for buttons
+Description: Shows red border for invalid input
+Update: created red invalid border
 */
+.invalid {
+            border: 1px solid #ea6153;
+        }
