@@ -1,15 +1,27 @@
+<!--
+Program: ToDoApp
+Author: Irin Avery 200260949
+Date Last Modified: 2/16/2017
+File: todo-details.html
+Description: A form that allows for creating or editing a task
+Update: Updates the editing of the form using ngModel for 2 way databinding
+-->
 <ion-header>
   <ion-navbar>
     <ion-title>To-Do Details</ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content padding class="to-do-create">
+<!-- Task Name-->
   <ion-item>
     <ion-label stacked>To-Do Name</ion-label>
     <ion-input  [(ngModel)]="name" type="text" placeholder="Task name"></ion-input>
   </ion-item>
+<!-- Task Notes-->
   <ion-item>
     <ion-label stacked>Notes</ion-label>
     <ion-textarea  [(ngModel)]="notes" type="text" placeholder="Steps to complete task"></ion-textarea>
   </ion-item>
+
+<!-- Save Button -->
   <button class="add-btn" (click)="saveToDo(id, name, notes)"> Save </button> </ion-content>

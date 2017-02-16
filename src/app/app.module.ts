@@ -1,3 +1,12 @@
+/*
+Program: ToDoApp
+Author: Irin Avery 200260949
+Date Last Modified: 2/16/2017
+File: app.component.ts
+Description: Imports modules and pages needed for our application
+Update: Added Details navigation to our application
+*/
+//import modules 
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
@@ -16,7 +25,7 @@ export const firebaseConfig = {
     storageBucket: "comp3025-todo.appspot.com",
     messagingSenderId: "69003071348"
 };
-
+//our modules to make the application run
 @NgModule({
   declarations: [
     MyApp,

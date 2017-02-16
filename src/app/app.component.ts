@@ -1,3 +1,12 @@
+/*
+Program: ToDoApp
+Author: Irin Avery 200260949
+Date Last Modified: 2/16/2017
+File: app.component.ts
+Description: Navigates to our home page as the root of our application
+Update: Scaffolded application with ionic v2
+*/
+// import components
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 import { StatusBar, Splashscreen } from 'ionic-native';

@@ -1,6 +1,15 @@
-<ion-header>
+<!--
+Program: ToDoApp
+Author: Irin Avery 200260949
+Date Last Modified: 2/16/2017
+File: Home.html
+Description: Showcases a list of pending and completed tasks
+Update: Added edit functionality
+-->
+  <ion-header>
   <ion-navbar>
     <ion-title> My To-Do List </ion-title>
+    <!-- Add Button -->
     <ion-buttons end>
       <button class="add-btn" ion-button color="secondary" (click)="newToDo()">
     <ion-icon name="add"></ion-icon>&nbsp;Add
@@ -12,22 +21,26 @@
   <ion-card>
     <ion-card-header class="pending"> Pending To-Do </ion-card-header>
     <ion-list>
+    <!-- List of pending tasks -->
       <ion-item-sliding id="list" text-wrap *ngFor="let toDo of toDoList | async" [class.hide]="toDo.done == true">
         <ion-item>
           <ion-icon name="timer" danger item-left></ion-icon>
           <h2>{{toDo.name}}</h2>
           <h3><strong>{{toDo.notes}}</strong></h3>
         </ion-item>
+        <!-- Slide to right for edit -->
         <ion-item-options side="right">
           <button ion-button (click)="editToDo(toDo.$key, toDo.name, toDo.notes)">
           <ion-icon name="build"></ion-icon>
           Edit
           </button>
+        <!-- Slide to right for delete -->
           <button ion-button color="danger" (click)="promptDelete(toDo.$key)">
           <ion-icon name="trash"></ion-icon>
           Delete
           </button>
         </ion-item-options>
+        <!-- Slide to left for complete -->
         <ion-item-options side="left">
           <button ion-button color="secondary" (click)="promptComplete(toDo.$key)">
     <ion-icon name="checkmark-circle"></ion-icon>
@@ -39,6 +52,7 @@
   </ion-card>
 
   <ion-card>
+        <!-- List of completed tasks -->
     <ion-card-header class="complete"> Completed </ion-card-header>
      <ion-list>
       <ion-item-sliding id="list" text-wrap *ngFor="let toDo of toDoList | async" [class.hide]="toDo.done == false">
@@ -47,6 +61,7 @@
           <h2>{{toDo.name}}</h2>
           <h3><strong>{{toDo.notes}}</strong></h3>
         </ion-item>
+        <!-- Slide to the right for delete -->
         <ion-item-options side="right">
           <button ion-button color="danger" (click)="promptDelete(toDo.$key)">
           <ion-icon name="trash"></ion-icon>
